@@ -31,4 +31,9 @@ class User extends Authenticatable
             'role' => UserRoleEnum::class,
         ];
     }
+
+    public function vendor()
+    {
+        return $this->hasOne(Vendor::class);
+    }
 }
