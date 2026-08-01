@@ -7,10 +7,17 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [UserController::class, 'register']);
 Route::post('login', [UserController::class, 'login']);
 
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [UserController::class, 'logout']);
 
-    Route::prefix('vendor')->group(function () {
-        Route::post('register', [VendorController::class, 'store']);
+    Route::prefix('vendors')->group(function () {
+        Route::post('/', [VendorController::class, 'store']);
+        Route::get('/', [VendorController::class, 'index']);
+        Route::get('/{vendor}', [VendorController::class, 'show']);
+        Route::put('/{vendor}', [VendorController::class, 'update']);
+
+        Route::patch('/{vendor}/activate', [VendorController::class, 'activate']);
+        Route::patch('/{vendor}/deactivate', [VendorController::class, 'deactivate']);
     });
 });

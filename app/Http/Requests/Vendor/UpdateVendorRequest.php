@@ -5,14 +5,14 @@ namespace App\Http\Requests\Vendor;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreVendorRequest extends FormRequest
+class UpdateVendorRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,10 +23,10 @@ class StoreVendorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'store_name'    => ['required', 'string'],
-            'description'   => ['nullable', 'string'],
+            'store_name'    => ['nullable', 'string'],
             'address'       => ['nullable', 'string'],
             'logo'          => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
+            'description'   => ['nullable', 'string'],
         ];
     }
 }

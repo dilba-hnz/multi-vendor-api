@@ -33,18 +33,14 @@ The goal of this project is to build a production-oriented backend system that d
 
 ## ✨ Current Features
 
-### 🔐 Authentication
-
 Implemented:
+### 🔐 Authentication
 
 - 📝 User registration
 - 🔑 User login
 - 🚪 User logout
 - 🎟️ Token-based authentication using Laravel Sanctum
 
----
-
-## 🧩 Planned Features
 
 ### 🏪 Vendor Management
 
@@ -52,6 +48,10 @@ Implemented:
 - 🛡️ Vendor-specific product authorization
 - 📦 Product inventory management
 
+
+---
+
+## 🧩 Planned Features
 
 ### 📦 Product Management
 
@@ -88,7 +88,7 @@ Implemented:
 
 - [x] 🏗️ Project initialization
 - [x] 🔐 Authentication system
-- [ ] 🏪 Vendor management
+- [x] 🏪 Vendor management
 - [ ] 📦 Product management
 - [ ] 🛒 Order management
 - [ ] 🔒 Inventory locking

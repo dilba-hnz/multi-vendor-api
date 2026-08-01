@@ -39,4 +39,26 @@ class VendorService
 
         });
     }
+
+    public function update(Vendor $vendor, array $attributes): bool
+    {
+        $data = $attributes;
+
+        if (isset($attributes['store_name'])) {
+            $data['slug'] = $this->slugGeneratorService->generate(
+                $attributes['store_name'],
+                Vendor::class
+            );
+        }
+
+        return $vendor->update($data);
+    }
+
+    public function setActive(Vendor $vendor, bool $isActive): bool
+    {
+        return $vendor->update([
+            'is_active' => $isActive
+        ]);
+    }
+
 }
