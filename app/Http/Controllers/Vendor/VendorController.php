@@ -30,7 +30,7 @@ class VendorController extends Controller
     }
     public function index()
     {
-        return VendorResource::collection(Vendor::query()->latest()->paginate());
+        return VendorResource::collection(Vendor::query()->where('is_active', true)->paginate());
     }
 
     public function update(Vendor $vendor, UpdateVendorRequest $request)
