@@ -42,7 +42,7 @@ class VendorController extends Controller
         return response()->noContent();
     }
 
-    public function active(Vendor $vendor)
+    public function activate(Vendor $vendor)
     {
         $this->authorize('setActive', $vendor);
 
