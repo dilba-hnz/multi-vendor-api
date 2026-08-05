@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::patch('/{vendor}/deactivate', [VendorController::class, 'deactivate']);
     });
 
-    Route::prefix('categories')->group(function () {
+    Route::prefix('categories')->middleware('role:admin')->group(function () {
         Route::post('/', [CategoryController::class, 'store']);
         Route::get('/', [CategoryController::class, 'index']);
         Route::put('/{category}', [CategoryController::class, 'update']);
