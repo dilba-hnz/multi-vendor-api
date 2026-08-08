@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\Vendor\VendorController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,14 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::patch('/{category}/activate', [CategoryController::class, 'activate']);
         Route::patch('/{category}/deactivate', [CategoryController::class, 'deactivate']);
+    });
+
+    Route::prefix('products')->group(function () {
+        Route::post('/', [ProductController::class, 'store']);
+        Route::get('/', [ProductController::class, 'index']);
+        Route::get('/{product}', [ProductController::class, 'show']);
+        Route::put('/{product}', [ProductController::class, 'update']);
+        Route::delete('/{product}', [ProductController::class, 'destroy']);
+        Route::patch('/{product}/restore', [ProductController::class, 'restore'])->withTrashed();
     });
 });
